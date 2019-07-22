@@ -1,0 +1,29 @@
+#app.yaml
+
+runtime: python27
+api_version: 1
+threadsafe: true
+# / = the character /
+# . = character
+#  * = repeated between 0 and infinity times
+
+
+
+handlers:
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /.*
+  script: Main.app
+
+
+#- url: /r
+#  script: subreddit.app
+
+
+libraries:
+- name: jinja2
+  version: latest
