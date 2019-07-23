@@ -4,60 +4,39 @@
     <h1>Personal Info</h1>
     <!-- <img height='300px' width='350px' src= 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fis2-ssl.mzstatic.com%2Fimage%2Fthumb%2FPurple123%2Fv4%2Fc3%2F64%2F73%2Fc36473ac-f540-e70d-48af-9a5299213c7d%2Fsource%2F512x512bb.jpg&imgrefurl=https%3A%2F%2Fappadvice.com%2Fgame%2Fapp%2Fresume-builder-cv-maker%2F1091462091&docid=Rw62XxKITsisEM&tbnid=z3KRNbaFWPOxMM%3A&vet=10ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg..i&w=512&h=512&itg=1&bih=686&biw=1440&q=resume%20builder%20logo&ved=0ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg&iact=mrc&uact=8'> -->
     <meta charset="utf-8">
-
     <title> Personal Info </title>
-    <form method='post'action='/'>
-  <form action="/" method="post">
-
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="user_name">
-  </div>
-  <div>
-    <label for='D.O.B'> D.O.B:</label>
-    <input type='D.O.B' id='D.O.B' name='user_D.O.B'
-  </div>
-  <div>
-    <label for='address'>Address:</label>
-    <input type='address' id='address'name='user_address'
-  </div>
-
-  <div>
-    <label for="mail">E-mail:</label>
-    <input type="email" id="mail" name="user_mail">
-  </div>
-
-  <div>
-    <label for='ed'> Education:</label>
-    <input type='education' id='ed' name='user_education'
-  </div>
-  <div>
-    <label for="exp"> Work Experience:</label>
-    <input type='Experience' id="exp" name='user_experience'
-  </div>
-
-
-  <div>
-    <label for="BIO">Bio:</label>
-    <textarea id="BIO" name="user_BIO"></textarea>
-  </div>
-  <div class="button">
-  <button type="submit">Submit your info</button>
-</div>
-
-
-
-
-
-
-
-</form>
   </head>
   <body style='background-color:white;'>
-
-    <!-- <object data="https://www.youtube.com/watch?v=bhwEsfXS6y8"
-     width="560" height="315"></object> -->
-
-
+    <form action="/result" method="post">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="user_name">
+      </div>
+      <div>
+        <label for='D.O.B'> D.O.B:</label>
+        <input type='D.O.B' id='D.O.B' name='user_D.O.B'
+      </div>
+      <div>
+        <label for='address'>Address:</label>
+        <input type='address' id='address'name='user_address'
+      </div>
+      <div>
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" name="user_mail">
+      </div>
+      <div>
+        <label for='ed'> Education:</label>
+        <input type='education' id='ed' name='user_education'
+      </div>
+      <div>
+        <label for="exp"> Work Experience:</label>
+        <input type='Experience' id="exp" name='user_experience'
+      </div>
+      <div>
+        <label for="BIO">Bio:</label>
+        <textarea id="BIO" name="user_BIO"></textarea>
+      </div>
+      <input type="submit" value="Submit your info"/>
+    </form>
   </body>
 </html>

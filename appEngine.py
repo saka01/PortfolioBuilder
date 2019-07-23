@@ -43,12 +43,17 @@ class LoginPage(webapp2.RequestHandler):
             email = user.nickname(),
         )
         portfolio_user.put()
-        self.response.write("thanks for registering")
 
 class HomePage(webapp2.RequestHandler):
     def post(self):
         home_template = jinja_ev.get_template("Home.html")
         self.response.write(home_template.render())
+
+class ResultPage(webapp2.RequestHandler):
+    def post(self):
+        result_template = jinja_ev.get_template("Result.html")
+        self.response.write(result_template.render())
+
 
 
 #the app configuration section
@@ -56,6 +61,7 @@ app = webapp2.WSGIApplication(
     [
         ("/", LoginPage),
         ("/home", HomePage),
+        ("/result", ResultPage),
 
     ], debug = True
 )
