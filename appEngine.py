@@ -61,8 +61,21 @@ class HomePage(webapp2.RequestHandler):
 
 class ResultPage(webapp2.RequestHandler):
     def post(self):
+        name= self.request.get("user_name")
+        dob = self.request.get("user_DOB")
+        add = self.request.get("user_address")
+        email= self.request.get("user_email")
+        education= self.request.get("user_education")
+        userDetails = {
+            "DOB": dob,
+            "ADDRESS": add,
+            "NAME": name,
+            "EMAIL": email,
+            "EDUCATION": education
+
+        }
         result_template = jinja_ev.get_template("Result.html")
-        self.response.write(result_template.render())
+        self.response.write(result_template.render(userDetails))
 
 
 
