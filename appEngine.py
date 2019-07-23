@@ -2,8 +2,7 @@ import webapp2
 import jinja2
 import os
 from google.appengine.api import users
-from google.appengine.ext import ndb
-
+from models import PortfolioUser
 #jijna2.environment is a constructor
 jinja_ev = jinja2.Environment(
     # /Users/cssi/Desktop/cssi-labs/python/labs/appengine
@@ -11,13 +10,9 @@ jinja_ev = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class User(ndb.Model):
-    email = ndb.StringProperty()
-    password = ndb.StringProperty()
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
-
         user = users.get_current_user()
         print("On login page")
         if user:
@@ -27,7 +22,7 @@ class LoginPage(webapp2.RequestHandler):
             button_dict = {
                 "logout" : logout_url
             }
-            existing_user = User.query().filter(User.email == email_address).get()
+            existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
                 print("user is already registered")
                 home_template = jinja_ev.get_template("Home.html")
@@ -36,23 +31,19 @@ class LoginPage(webapp2.RequestHandler):
                 print("user is not registered")
                 register_template = jinja_ev.get_template("Registeration.html")
                 self.response.write(register_template.render(button_dict))
-
-
         else:
             login_url = users.create_login_url("/")
             login_button = '<a href="%s"> Sign In</a>' % login_url
             # login_button = '<a href="' + login_url + '"> Sign In</a>'
             self.response.write("Please log in!<br>" + login_button)
 
-def post(Self):
-    user = users.get_current_user()
-
-    resume_user = User(
-        email = user.nickname(),
-        password  = self.request.get("password")
-    )
-    resume_user.put()
-    self.response.write("thanks for registering")
+    def post(self):
+        user = users.get_current_user()
+        portfolio_user = PortfolioUser(
+            email = user.nickname(),
+        )
+        portfolio_user.put()
+        self.response.write("thanks for registering")
 
 class HomePage(webapp2.RequestHandler):
     def post(self):
