@@ -2,11 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <h1>Personal Info</h1>
-    <!-- <img height='300px' width='350px' src= 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fis2-ssl.mzstatic.com%2Fimage%2Fthumb%2FPurple123%2Fv4%2Fc3%2F64%2F73%2Fc36473ac-f540-e70d-48af-9a5299213c7d%2Fsource%2F512x512bb.jpg&imgrefurl=https%3A%2F%2Fappadvice.com%2Fgame%2Fapp%2Fresume-builder-cv-maker%2F1091462091&docid=Rw62XxKITsisEM&tbnid=z3KRNbaFWPOxMM%3A&vet=10ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg..i&w=512&h=512&itg=1&bih=686&biw=1440&q=resume%20builder%20logo&ved=0ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg&iact=mrc&uact=8'> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title> Personal Info </title>
   </head>
-  <body style='background-color:white;'>
+  <body>
+    <div class="title">
+      <h2> Build a Resume in Minutes!</h2>
+    </div>
+    <img height="100px" width="150px" id="logo" src="lol.png" alt="Logo">
     <form action="/result" method="post">
       <div>
         <label for="name">Name:</label>
@@ -37,6 +40,12 @@
         <textarea id="BIO" name="user_BIO"></textarea>
       </div>
       <input type="submit" value="Submit your info"/>
+      <div class="alert alert-success" role="alert">
+        This is a success alert—check it out!
+      </div>
     </form>
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home_looks.css">
+    <a href="{{logout}}">Log out</a>
   </body>
 </html>
