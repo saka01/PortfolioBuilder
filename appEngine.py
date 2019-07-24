@@ -26,7 +26,6 @@ class LoginPage(webapp2.RequestHandler):
             }
             existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
-
                 print("user is already registered")
                 home_template = jinja_ev.get_template("Home.html")
                 self.response.write(home_template.render(button_dict))
