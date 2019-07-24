@@ -80,7 +80,9 @@ class HomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         name= self.request.get("user_name")
+        position= self.request.get('user_position')
         add = self.request.get("user_address")
+        number= self.request.get('user_number')
         email= self.request.get("user_email")
         education= self.request.get("user_education")
         experience = self.request.get('user_experience')
@@ -92,7 +94,9 @@ class ResultPage(webapp2.RequestHandler):
             "EMAIL": email,
             "EDUCATION": education,
             "EXPERIENCE": experience,
-            "BIO": bio
+            "BIO": bio,
+            "POSITION":position,
+            "NUMBER": number,
 
 
         }
