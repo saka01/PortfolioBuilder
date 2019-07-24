@@ -87,12 +87,11 @@ class ResultPage(webapp2.RequestHandler):
         bio= self.request.get('user_bio')
         resumeInfo= ResumeInfo(name=name,address=add,email=email,education=education,work_experience=experience,bio=bio)
         userDetails = {
-            "ADDRESS": add,
             "NAME": name,
-            "EMAIL": email,
-            "EDUCATION": education,
-            "EXPERIENCE": experience,
-            "BIO": bio
+            "CURRENTPOSITION": email,
+            "ADDRESS": education,
+            "PNUMBER": experience,
+            "EMAIL": bio
 
 
         }
