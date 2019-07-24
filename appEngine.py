@@ -3,6 +3,7 @@ import jinja2
 import os
 from google.appengine.api import users
 from models import PortfolioUser
+from models import ResumeInfo
 #jijna2.environment is a constructor
 jinja_ev = jinja2.Environment(
     # /Users/cssi/Desktop/cssi-labs/python/labs/appengine
@@ -79,20 +80,26 @@ class HomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         name= self.request.get("user_name")
-        dob = self.request.get("user_DOB")
         add = self.request.get("user_address")
         email= self.request.get("user_email")
         education= self.request.get("user_education")
+        experience = self.request.get('user_experience')
+        bio= self.request.get('user_bio')
+        resumeInfo= ResumeInfo(name=name,address=add,email=email,education=education,work_experience=experience,bio=bio)
         userDetails = {
-            "DOB": dob,
             "ADDRESS": add,
             "NAME": name,
             "EMAIL": email,
-            "EDUCATION": education
+            "EDUCATION": education,
+            "EXPERIENCE": experience,
+            "BIO": bio
+
 
         }
         result_template = jinja_ev.get_template("Result.html")
         self.response.write(result_template.render(userDetails))
+
+        resumeInfo.put()
 
 
 
