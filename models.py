@@ -10,6 +10,11 @@ class ResumeInfo(ndb.Model):
     work_experience= ndb.StringProperty(required=True)
     objective= ndb.StringProperty(required=True)
     email= ndb.StringProperty(required=True)
+    institute= ndb.StringProperty(required=True)
+    education= ndb.StringProperty(required=True)
+    graduation_year= ndb.StringProperty(required=True)
+    concentration= ndb.StringProperty(required=True)
+
 
     def printResumeInfo(self):
         print(self.Name+ " " + self.CurrentPosition+ " " + self.Address + " " + self.Number + " " + self.Email + " " + self.Objective)
