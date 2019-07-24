@@ -8,11 +8,11 @@ class ResumeInfo(ndb.Model):
     email= ndb.StringProperty(required=True)
     education= ndb.StringProperty(required=True)
     work_experience= ndb.StringProperty(required=True)
-    bio= ndb.StringProperty(required=True)
+    objective= ndb.StringProperty(required=True)
     email= ndb.StringProperty(required=True)
 
     def printResumeInfo(self):
-        print(self.Name+ " " + self.CurrentPosition+ " " + self.Address + " " + self.Number + " " + self.Email + " " + self.Bio)
+        print(self.Name+ " " + self.CurrentPosition+ " " + self.Address + " " + self.Number + " " + self.Email + " " + self.Objective)
 
 class PortfolioUser(ndb.Model):
     email = ndb.StringProperty(required=True)
