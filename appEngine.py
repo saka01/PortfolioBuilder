@@ -86,7 +86,21 @@ class ResultPage(webapp2.RequestHandler):
         education= self.request.get("user_education")
         experience = self.request.get('user_experience')
         objective= self.request.get('user_objective')
-        resumeInfo= ResumeInfo(name=name,current_position=current_position,address=address,number=number,email=email,education=education,work_experience=experience,objective=objective)
+        institute= self.request.get('institute')
+        education= self.request.get('education')
+        graduation_year= self.request.get('graduation')
+        concentration= self.request.get('concentration')
+        resumeInfo= ResumeInfo(name=name,
+            current_position=current_position,
+            address=address,
+            number=number,
+            email=email,
+            education=education,
+            work_experience=experience,
+            objective=objective,
+            institute=institute,
+            graduation_year=graduation_year,
+            concentration=concentration,)
         userDetails = {
             "NAME" : name,
             "CURRENTPOSITION" : current_position,
@@ -96,6 +110,9 @@ class ResultPage(webapp2.RequestHandler):
             "EDUCATION": education,
             "EXPERIENCE": experience,
             "OBJECTIVE": objective,
+            "INSTITUTE": institute,
+            "GRADUATION_YEAR": graduation_year,
+            "CONCENTRATION": concentration,
 
 
         }
