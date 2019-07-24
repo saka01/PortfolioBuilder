@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <h1>Personal Info</h1>
-    <!-- <img height='300px' width='350px' src= 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fis2-ssl.mzstatic.com%2Fimage%2Fthumb%2FPurple123%2Fv4%2Fc3%2F64%2F73%2Fc36473ac-f540-e70d-48af-9a5299213c7d%2Fsource%2F512x512bb.jpg&imgrefurl=https%3A%2F%2Fappadvice.com%2Fgame%2Fapp%2Fresume-builder-cv-maker%2F1091462091&docid=Rw62XxKITsisEM&tbnid=z3KRNbaFWPOxMM%3A&vet=10ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg..i&w=512&h=512&itg=1&bih=686&biw=1440&q=resume%20builder%20logo&ved=0ahUKEwiXq6q_lMvjAhUKLa0KHUYDBA0QMwhdKBIwEg&iact=mrc&uact=8'> -->
+<!-- <nav>
+  <img id="logo" src="images/logo.png" alt="Logo">
+  <h2 id="title"> Build a Resume in Minutes!</h2>
+</nav> -->
+
+<div class='container2'>
+		<div>
+			<img src='images/logo.png' class='iconDetails'>
+		</div>
+	<div style='margin-left:60px;'>
+	<h4>Build a Resume in Minutes!</h4>
+  </div>
+  </div>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title> Personal Info </title>
   </head>
-  <body style='background-color:white;'>
+  <body>
+    <br>
+    <br>
+    <br>
+    <div>
     <form action="/result" method="post">
       <div>
         <label for="user_name">Name:</label>
         <input type="text" id="name" name="user_name">
-      </div>
-      <div>
-        <label for="user_DOB"> D.O.B:</label>
-        <input type="text" id='D.O.B' name="user_DOB">
       </div>
       <div>
         <label for='user_address'>Address:</label>
@@ -33,10 +44,24 @@
         <input type='text' id="experience" name="user_experience">
       </div>
       <div>
-        <label for="BIO">Bio:</label>
-        <textarea id="BIO" name="user_BIO"></textarea>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="user_bio"></textarea>
       </div>
       <input type="submit" value="Submit your info"/>
+      <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+      <button class="btn btn-outline-success" type="button">Main button</button>
     </form>
+  </nav>
+
+      <div class="alert alert-success" role="alert">
+        This is a success alert—check it out!
+      </div>
+    </form>
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home_looks.css">
+    <a href="{{logout}}">Log out</a>
+
   </body>
 </html>
