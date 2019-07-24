@@ -20,23 +20,28 @@ class LoginPage(webapp2.RequestHandler):
             print("user is logged in to gmail")
             email_address = user.nickname()
             logout_url = users.create_logout_url('/')
+
             button_dict = {
-                "logout" : logout_url
+                "logout" : logout_url,
             }
             existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
+
                 print("user is already registered")
                 home_template = jinja_ev.get_template("Home.html")
-                self.response.write(home_template.render())
+                self.response.write(home_template.render(button_dict))
             else:
                 print("user is not registered")
                 register_template = jinja_ev.get_template("Registeration.html")
                 self.response.write(register_template.render(button_dict))
         else:
             login_url = users.create_login_url("/")
-            login_button = '<a href="%s"> Sign In</a>' % login_url
-            # login_button = '<a href="' + login_url + '"> Sign In</a>'
-            self.response.write("Please log in!<br>" + login_button)
+            login_template = jinja_ev.get_template("Login.html")
+            button_dict = {
+                "login" : login_url
+            }
+            self.response.write(login_template.render(button_dict))
+
 
     def post(self):
         user = users.get_current_user()
@@ -46,22 +51,36 @@ class LoginPage(webapp2.RequestHandler):
         portfolio_user.put()
 
 class HomePage(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
+        logout_url = users.create_logout_url('/')
+        print("In HomePage, creating logout url: " + logout_url)
+        button_dict = {
+            "logout" : logout_url
+        }
         home_template = jinja_ev.get_template("Home.html")
-        self.response.write(home_template.render())
+        self.response.write(home_template.render(button_dict))
 
 class ResultPage(webapp2.RequestHandler):
     def post(self):
-        userName= self.request.get('user_name')
-        userDob= self.request.get('user_dob')
-        userAddress= self.request.get('user_address')
-        userMail= self.request.get('user_mail')
-        userEd= self.request.get('user_education')
-        userEx= self.request.get('user_experience')
-        userBio= self.request.get('user_bio')
-        resumeInfo= ResumeInfo(name=userName,dob=userDob,address=userAddress,email=userMail,education=userEd,work_experience=userEx,bio=userBio)
+        name= self.request.get("user_name")
+        add = self.request.get("user_address")
+        email= self.request.get("user_email")
+        education= self.request.get("user_education")
+        experience = self.request.get('user_experience')
+        bio= self.request.get('user_bio')
+        resumeInfo= ResumeInfo(name=name,address=add,email=email,education=education,work_experience=experience,bio=bio)
+        userDetails = {
+            "ADDRESS": add,
+            "NAME": name,
+            "EMAIL": email,
+            "EDUCATION": education,
+            "EXPERIENCE": experience,
+            "BIO": bio
+
+
+        }
         result_template = jinja_ev.get_template("Result.html")
-        self.response.write(result_template.render())
+        self.response.write(result_template.render(userDetails))
 
         resumeInfo.put()
 
