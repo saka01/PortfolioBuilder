@@ -80,18 +80,23 @@ class HomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         name= self.request.get("user_name")
-        add = self.request.get("user_address")
+        current_position= self.request.get('user_position')
+        address = self.request.get("user_address")
+        number= self.request.get('user_number')
         email= self.request.get("user_email")
         education= self.request.get("user_education")
         experience = self.request.get('user_experience')
         bio= self.request.get('user_bio')
-        resumeInfo= ResumeInfo(name=name,address=add,email=email,education=education,work_experience=experience,bio=bio)
+        resumeInfo= ResumeInfo(name=name,current_position=current_position,address=address,number=number,email=email,education=education,work_experience=experience,bio=bio)
         userDetails = {
-            "NAME": name,
-            "CURRENTPOSITION": email,
-            "ADDRESS": education,
-            "PNUMBER": experience,
-            "EMAIL": bio
+            "NAME" : name,
+            "CURRENTPOSITION" : current_position,
+            "ADDRESS" : address,
+            "PNUMBER": number,
+            "EMAIL": email,
+            "EDUCATION": education,
+            "EXPERIENCE": experience,
+            "BIO": bio,
 
 
         }
