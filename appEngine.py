@@ -49,10 +49,27 @@ class LoginPage(webapp2.RequestHandler):
         )
         portfolio_user.put()
 
+
+
+class RegisterationPage(webapp2.RequestHandler):
+    def post(self):
+        logout_url = users.create_logout_url('/')
+        button_dict = {
+            "logout" : logout_url
+        }
+        register_template = jinja_ev.get_template("Registeration.html")
+        self.response.write(register_template.render(button_dict))
+
+    def get(self):
+        user = users.get_current_user()
+        portfolio_user = PortfolioUser(
+            email = user.nickname(),
+        )
+        portfolio_user.put()
+
 class HomePage(webapp2.RequestHandler):
     def get(self):
         logout_url = users.create_logout_url('/')
-        print("In HomePage, creating logout url: " + logout_url)
         button_dict = {
             "logout" : logout_url
         }
@@ -84,6 +101,7 @@ app = webapp2.WSGIApplication(
     [
         ("/", LoginPage),
         ("/home", HomePage),
+        ("/registration", RegisterationPage),
         ("/result", ResultPage),
 
     ], debug = True
