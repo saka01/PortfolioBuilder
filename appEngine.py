@@ -96,7 +96,7 @@ class ResultPage(webapp2.RequestHandler):
             "EMAIL": email,
             "EDUCATION": education,
             "EXPERIENCE": experience,
-            "objective": objective,
+            "OBJECTIVE": objective,
 
 
         }
