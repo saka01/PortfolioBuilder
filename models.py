@@ -20,4 +20,4 @@ class ResumeInfo(ndb.Model):
         print(self.Name+ " " + self.CurrentPosition+ " " + self.Address + " " + self.Number + " " + self.Email + " " + self.Objective + " " + self.Location)
 
 class PortfolioUser(ndb.Model):
-    email = ndb.StringProperty(required=True)
+    email= ndb.StringProperty(required=True)
