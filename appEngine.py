@@ -108,6 +108,10 @@ class ResultPage(webapp2.RequestHandler):
         proj1= self.request.get('proj1')
         proj2= self.request.get('proj2')
         user_project= self.request.get('user_project')
+        start= self.request.get('start')
+        end= self.request.get('end')
+        start2= self.request.get('start2')
+        end2= self.request.get('end2')
         print('title'+ title)
 
         resumeInfo= ResumeInfo(name=name,
@@ -131,6 +135,10 @@ class ResultPage(webapp2.RequestHandler):
             proj1=proj1,
             proj2=proj2,
             user_project=user_project,
+            start=start,
+            end=end,
+            start2=start2,
+            end2=end2,
             )
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
@@ -155,6 +163,10 @@ class ResultPage(webapp2.RequestHandler):
             "PROJ1": proj1,
             "PROJ2":proj2,
             "PROJECT": user_project,
+            "START": start,
+            "END":end,
+            "START2": start2,
+            "END2": end2,
 
         }
         result_template = jinja_ev.get_template("Result.html")
