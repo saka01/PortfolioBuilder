@@ -99,8 +99,18 @@ class ResultPage(webapp2.RequestHandler):
         graduation_year= self.request.get('graduation')
         concentration= self.request.get('concentration')
         location=self.request.get('location')
-        resumeInfo= ResumeInfo(
-            name=name,
+        title=self.request.get('title')
+        title2= self.request.get('title2')
+        title3= self.request.get('title3')
+        title4= self.request.get('title4')
+        userex1= self.request.get('userex1')
+        userex2= self.request.get('userex2')
+        proj1= self.request.get('proj1')
+        proj2= self.request.get('proj2')
+        user_project= self.request.get('user_project')
+        print('title'+ title)
+
+        resumeInfo= ResumeInfo(name=name,
             current_position=current_position,
             address=address,
             number=number,
@@ -111,7 +121,18 @@ class ResultPage(webapp2.RequestHandler):
             institute=institute,
             graduation_year=graduation_year,
             location=location,
-            concentration=concentration,)
+            concentration=concentration,
+            title=title,
+            title2=title2,
+            title3=title3,
+            title4=title4,
+            userex1=userex1,
+            userex2=userex2,
+            proj1=proj1,
+            proj2=proj2,
+            user_project=user_project,
+            )
+        # print('resumeInfo'+str(resumeInfo))
         userDetails = {
             "NAME" : name,
             "CURRENTPOSITION" : current_position,
@@ -125,6 +146,15 @@ class ResultPage(webapp2.RequestHandler):
             "GRADUATION_YEAR": graduation_year,
             "CONCENTRATION": concentration,
             "LOCATION": location,
+            "TITLE":title,
+            "TITLE2":title2,
+            "TITLE3": title3,
+            "TITLE4":title4,
+            "USEREX1": userex1,
+            "USEREX2": userex2,
+            "PROJ1": proj1,
+            "PROJ2":proj2,
+            "PROJECT": user_project,
 
         }
         result_template = jinja_ev.get_template("Result.html")
