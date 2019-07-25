@@ -22,6 +22,7 @@ class ResumeInfo(ndb.Model):
     userex2= ndb.StringProperty(required=True)
     proj1= ndb.StringProperty(required=True)
     proj2= ndb.StringProperty(required=True)
+    user_project= ndb.StringProperty(required=True)
 
 
     def printResumeInfo(self):

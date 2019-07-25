@@ -99,6 +99,7 @@ class ResultPage(webapp2.RequestHandler):
         userex2= self.request.get('userex2')
         proj1= self.request.get('proj1')
         proj2= self.request.get('proj2')
+        user_project= self.request.get('user_project')
         print('title'+ title)
 
         resumeInfo= ResumeInfo(name=name,
@@ -121,7 +122,7 @@ class ResultPage(webapp2.RequestHandler):
             userex2=userex2,
             proj1=proj1,
             proj2=proj2,
-
+            user_project=user_project,
             )
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
@@ -145,6 +146,7 @@ class ResultPage(webapp2.RequestHandler):
             "USEREX2": userex2,
             "PROJ1": proj1,
             "PROJ2":proj2,
+            "PROJECT": user_project,
 
 
         }
