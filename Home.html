@@ -92,6 +92,16 @@
             <input type='text' id="title" name="title">
           </div></li>
         <li>  <div>
+            <label for="start">Start month:</label>
+            <input type="month" id="start" name="start"
+               min="2018-03" value="2018-05">
+       </div></li>
+            <li>  <div>
+                <label for="end">End month:</label>
+                <input type="month" id="end" name="end"
+                       min="2018-03" value="2018-05">
+            </div></li>
+        <li>  <div>
             <label for='exp1'>experience:</label>
             <!-- <input type='text' id="experience" name="userex_1"> -->
             <TEXTAREA Name="userex1" ROWS="2" COLS="20"></TEXTAREA>
@@ -100,11 +110,25 @@
               <label for='title2'>Title2:</label>
               <input type='text' id="title2" name="title2">
             </div></li>
+
+          <li>  <div>
+            <label for="start2">Start month:</label>
+            <input type="month" id="start2" name="start2"
+               min="2018-03" value="2018-05">
+            </div></li>
+            <li>  <div>
+                <label for="end2">End month:</label>
+                <input type="month" id="end2" name="end2"
+                       min="2018-03" value="2018-05">
+            </div></li>
+
           <li>  <div>
               <label for='exp2'>experience2:</label>
               <!-- <input type='text' id="experience2" name="userex_2"> -->
               <TEXTAREA Name="userex2" ROWS="2" COLS="20"></TEXTAREA>
             </div></li>
+
+
       </ul>
     <h4> Project </h4>
     <label for="proj"> Project:</label>
@@ -139,6 +163,7 @@
     <link rel="stylesheet" href="/css/home_looks.css">
     <a href="{{logout}}">Log out</a>
     <img src='images/air.png' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+
 
   </body>
 </html>

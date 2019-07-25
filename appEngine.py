@@ -21,14 +21,23 @@ class LoginPage(webapp2.RequestHandler):
             email_address = user.nickname()
             logout_url = users.create_logout_url('/')
 
+            print "*"*100
+            print email_address
+
             button_dict = {
                 "logout" : logout_url,
             }
+
+            # print("**********************************")
+            # print("current logged in email is: " + email_address)
+
+
             existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
                 print("user is already registered")
                 home_template = jinja_ev.get_template("Home.html")
                 self.response.write(home_template.render(button_dict))
+
             else:
                 print("user is not registered")
                 register_template = jinja_ev.get_template("Registeration.html")
@@ -42,17 +51,10 @@ class LoginPage(webapp2.RequestHandler):
             self.response.write(login_template.render(button_dict))
 
 
-    def post(self):
-        user = users.get_current_user()
-        portfolio_user = PortfolioUser(
-            email = user.nickname(),
-        )
-        portfolio_user.put()
-
-
 
 class RegisterationPage(webapp2.RequestHandler):
     def post(self):
+        print("user registering")
         logout_url = users.create_logout_url('/')
         button_dict = {
             "logout" : logout_url
@@ -60,21 +62,27 @@ class RegisterationPage(webapp2.RequestHandler):
         register_template = jinja_ev.get_template("Registeration.html")
         self.response.write(register_template.render(button_dict))
 
-    def get(self):
-        user = users.get_current_user()
-        portfolio_user = PortfolioUser(
-            email = user.nickname(),
-        )
-        portfolio_user.put()
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         logout_url = users.create_logout_url('/')
+        email_address = user.nickname()
+        print("**********************************")
+        print("current logged in email is: " + email_address)
         button_dict = {
-            "logout" : logout_url
+            "logout" : logout_url,
         }
         home_template = jinja_ev.get_template("Home.html")
         self.response.write(home_template.render(button_dict))
+
+    # def get(self):
+    #     user = users.get_current_user()
+    #     email_address = user.nickname()
+    #     existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
+    #     if existing_user:
+    #         print("i need to get id now")
+    #         ident = resumeInfo.id()
 
 class ResultPage(webapp2.RequestHandler):
     def post(self):
@@ -100,6 +108,10 @@ class ResultPage(webapp2.RequestHandler):
         proj1= self.request.get('proj1')
         proj2= self.request.get('proj2')
         user_project= self.request.get('user_project')
+        start= self.request.get('start')
+        end= self.request.get('end')
+        start2= self.request.get('start2')
+        end2= self.request.get('end2')
         print('title'+ title)
 
         resumeInfo= ResumeInfo(name=name,
@@ -123,6 +135,10 @@ class ResultPage(webapp2.RequestHandler):
             proj1=proj1,
             proj2=proj2,
             user_project=user_project,
+            start=start,
+            end=end,
+            start2=start2,
+            end2=end2,
             )
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
@@ -147,19 +163,27 @@ class ResultPage(webapp2.RequestHandler):
             "PROJ1": proj1,
             "PROJ2":proj2,
             "PROJECT": user_project,
-
+            "START": start,
+            "END":end,
+            "START2": start2,
+            "END2": end2,
 
         }
         result_template = jinja_ev.get_template("Result.html")
         self.response.write(result_template.render(userDetails))
 
+        user = users.get_current_user()
+        portfolio_user = PortfolioUser(
+        email = user.nickname(),
+        )
+        portfolio_user.put()
         resumeInfo.put()
-
-    # def get(self):
-    #     user = users.get_current_user()
-    #     existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
-    #
-    #     if existing_user:
+        #
+        # resumeprint = resumeInfo.put()
+        # print(resumeprint)
+        #
+        # mu = resumeInfo(id = users.get_current_user().id())
+        # mu.put()
 
 
 #the app configuration section

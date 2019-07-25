@@ -15,4 +15,10 @@ body{
   display: block;
   margin: 0 auto;
   width: 500px;
+
+  .wrapper {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+    flex-wrap: wrap;
 }

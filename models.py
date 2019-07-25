@@ -23,10 +23,14 @@ class ResumeInfo(ndb.Model):
     proj1= ndb.StringProperty(required=True)
     proj2= ndb.StringProperty(required=True)
     user_project= ndb.StringProperty(required=True)
+    start= ndb.StringProperty(required=True)
+    end= ndb.StringProperty(required=True)
+    start2= ndb.StringProperty(required=True)
+    end2= ndb.StringProperty(required=True)
 
 
     def printResumeInfo(self):
         print(self.Name+ " " + self.CurrentPosition+ " " + self.Address + " " + self.Number + " " + self.Email + " " + self.Objective + " " + self.Location)
 
 class PortfolioUser(ndb.Model):
-    email = ndb.StringProperty(required=True)
+    email= ndb.StringProperty(required=True)
