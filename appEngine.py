@@ -92,6 +92,13 @@ class ResultPage(webapp2.RequestHandler):
         concentration= self.request.get('concentration')
         location=self.request.get('location')
         title=self.request.get('title')
+        title2= self.request.get('title2')
+        title3= self.request.get('title3')
+        title4= self.request.get('title4')
+        userex1= self.request.get('userex1')
+        userex2= self.request.get('userex2')
+        proj1= self.request.get('proj1')
+        proj2= self.request.get('proj2')
         print('title'+ title)
 
         resumeInfo= ResumeInfo(name=name,
@@ -107,6 +114,14 @@ class ResultPage(webapp2.RequestHandler):
             location=location,
             concentration=concentration,
             title=title,
+            title2=title2,
+            title3=title3,
+            title4=title4,
+            userex1=userex1,
+            userex2=userex2,
+            proj1=proj1,
+            proj2=proj2,
+
             )
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
@@ -123,6 +138,13 @@ class ResultPage(webapp2.RequestHandler):
             "CONCENTRATION": concentration,
             "LOCATION": location,
             "TITLE":title,
+            "TITLE2":title2,
+            "TITLE3": title3,
+            "TITLE4":title4,
+            "USEREX1": userex1,
+            "USEREX2": userex2,
+            "PROJ1": proj1,
+            "PROJ2":proj2,
 
 
         }

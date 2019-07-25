@@ -15,6 +15,13 @@ class ResumeInfo(ndb.Model):
     concentration= ndb.StringProperty(required=True)
     location = ndb.StringProperty(required=True)
     title= ndb.StringProperty(required=True)
+    title2= ndb.StringProperty(required=True)
+    title3= ndb.StringProperty(required=True)
+    title4= ndb.StringProperty(required=True)
+    userex1= ndb.StringProperty(required=True)
+    userex2= ndb.StringProperty(required=True)
+    proj1= ndb.StringProperty(required=True)
+    proj2= ndb.StringProperty(required=True)
 
 
     def printResumeInfo(self):
