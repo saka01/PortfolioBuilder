@@ -26,7 +26,6 @@ class LoginPage(webapp2.RequestHandler):
             }
             existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
-
                 print("user is already registered")
                 home_template = jinja_ev.get_template("Home.html")
                 self.response.write(home_template.render(button_dict))
@@ -87,7 +86,23 @@ class ResultPage(webapp2.RequestHandler):
         education= self.request.get("user_education")
         experience = self.request.get('user_experience')
         objective= self.request.get('user_objective')
-        resumeInfo= ResumeInfo(name=name,current_position=current_position,address=address,number=number,email=email,education=education,work_experience=experience,objective=objective)
+        institute= self.request.get('institute')
+        education= self.request.get('education')
+        graduation_year= self.request.get('graduation')
+        concentration= self.request.get('concentration')
+        location=self.request.get('location')
+        resumeInfo= ResumeInfo(name=name,
+            current_position=current_position,
+            address=address,
+            number=number,
+            email=email,
+            education=education,
+            work_experience=experience,
+            objective=objective,
+            institute=institute,
+            graduation_year=graduation_year,
+            location=location,
+            concentration=concentration,)
         userDetails = {
             "NAME" : name,
             "CURRENTPOSITION" : current_position,
@@ -97,6 +112,10 @@ class ResultPage(webapp2.RequestHandler):
             "EDUCATION": education,
             "EXPERIENCE": experience,
             "OBJECTIVE": objective,
+            "INSTITUTE": institute,
+            "GRADUATION_YEAR": graduation_year,
+            "CONCENTRATION": concentration,
+            "LOCATION": location,
 
 
         }
@@ -105,6 +124,11 @@ class ResultPage(webapp2.RequestHandler):
 
         resumeInfo.put()
 
+    # def get(self):
+    #     user = users.get_current_user()
+    #     existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
+    #
+    #     if existing_user:
 
 
 #the app configuration section

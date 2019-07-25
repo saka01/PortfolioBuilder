@@ -44,29 +44,47 @@
         <input type="text" id="email" name="user_email">
       </div>
       <div>
+        <label for="objective">Objective:</label>
+        <textarea id="objective" name="user_objective"></textarea>
+      </div>
+      <h2>Education</h2>
+      <!-- <div>
         <label for='user_education'> Education:</label>
-        <input type="text" id='education' name='user_education'>
+        <input type="text" id='education' name='user_education'> -->
+        <ul>
+          <li>  <div>
+              <label for="institute">name of institute:</label>
+              <input type="text" id="institute" name="institute">
+            </div></li>
+
+            <li>  <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location">
+              </div></li>
+
+          <li>  <div>
+              <label for="level of ed">Level of Education:</label>
+              <input type="text" id="level of ed" name="education">
+            </div></li>
+
+          <li>  <div>
+              <label for="grad year">Graduation Year:</label>
+              <input type="text" id="grad year" name="graduation">
+            </div></li>
+
+          <li>  <div>
+              <label for="concentration">Concentration</label>
+              <input type="text" id="concentration" name="concentration">
+            </div></li>
+        </ul>
       </div>
       <div>
         <label for="exp"> Work Experience:</label>
         <input type='text' id="experience" name="user_experience">
       </div>
-      <div>
-        <label for="objective">Objective:</label>
-        <textarea id="objective" name="user_objective"></textarea>
-      </div>
-      <input type="submit" value="Submit your info"/>
-      <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <button class="btn btn-outline-success" type="button">Main button</button>
-    </form>
-  </nav>
 
-      <div class="alert alert-success" role="alert">
-        This is a success alert—check it out!
-      </div>
-    </form>
-    </div>
+      <input type="submit" value="Submit your info"/>
+
     <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/home_looks.css">
     <a href="{{logout}}">Log out</a>
