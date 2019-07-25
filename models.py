@@ -14,6 +14,7 @@ class ResumeInfo(ndb.Model):
     graduation_year= ndb.StringProperty(required=True)
     concentration= ndb.StringProperty(required=True)
     location = ndb.StringProperty(required=True)
+    title= ndb.StringProperty(required=True)
 
 
     def printResumeInfo(self):

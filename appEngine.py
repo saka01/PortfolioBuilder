@@ -91,6 +91,9 @@ class ResultPage(webapp2.RequestHandler):
         graduation_year= self.request.get('graduation')
         concentration= self.request.get('concentration')
         location=self.request.get('location')
+        title=self.request.get('title')
+        print('title'+ title)
+
         resumeInfo= ResumeInfo(name=name,
             current_position=current_position,
             address=address,
@@ -102,7 +105,10 @@ class ResultPage(webapp2.RequestHandler):
             institute=institute,
             graduation_year=graduation_year,
             location=location,
-            concentration=concentration,)
+            concentration=concentration,
+            title=title,
+            )
+        # print('resumeInfo'+str(resumeInfo))
         userDetails = {
             "NAME" : name,
             "CURRENTPOSITION" : current_position,
@@ -116,6 +122,7 @@ class ResultPage(webapp2.RequestHandler):
             "GRADUATION_YEAR": graduation_year,
             "CONCENTRATION": concentration,
             "LOCATION": location,
+            "TITLE":title,
 
 
         }
