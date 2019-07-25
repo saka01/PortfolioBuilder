@@ -7,30 +7,29 @@
   </head>
   <body>
     <h2>This is result</h2>
-    <div class="wholeresume" method="post" style="border:1px solid black;">
 
-    <div class="box">
-      <br>
-      <div id="resumeheader">
-        <h1><b>{{NAME}}</b></h1>
-        <h2>{{CURRENTPOSITION}}</h2>
-        <p><b>Address:</b> {{ADDRESS}}</p>
-        <p><b>Phone:</b> {{PNUMBER}}</p>
-        <p><b>Email:</b> {{EMAIL}}</p>
-      </div>
-      <br>
-      </div>
+    <div class="wholeresume" method="post" style="border:1px solid black;">
+      <div class="box">
+        <br>
+        <div id="resumeheader">
+          <h1><b>{{NAME}}</b></h1>
+          <h2>{{CURRENTPOSITION}}</h2>
+          <p><b>Address:</b> {{ADDRESS}}</p>
+          <p><b>Phone:</b> {{PNUMBER}}</p>
+          <p><b>Email:</b> {{EMAIL}}</p>
+        </div>
+        <br>
+        </div>  
+
       <div class="objectivesection">
         <p>{{OBJECTIVE}}</p>
       </div>
-<<<<<<< HEAD
-      <hr class="style14" >
-=======
-      <div class="educationsection">
-
-      </div>
->>>>>>> fde328013d5aaf6f121cf99e10818ee1411a2e28
-
+      <hr class="style14" width = "90%">
+      <h2 style="border:1px solid black;"><b>Education</b></h2>
+      <h3><span  id="education">{{EDUCATION}}</span> - {{LOCATION}}</h3>
+      <p>{{INSTITUTE}}</p>
+      <p>Intended Year of Graduation: {{GRADUATION_YEAR}}</p>
+      <p>Specialization: {{CONCENTRATION}}</p>
       <br>
       <br>
       <br>

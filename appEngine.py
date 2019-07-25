@@ -90,6 +90,7 @@ class ResultPage(webapp2.RequestHandler):
         education= self.request.get('education')
         graduation_year= self.request.get('graduation')
         concentration= self.request.get('concentration')
+        location=self.request.get('location')
         resumeInfo= ResumeInfo(name=name,
             current_position=current_position,
             address=address,
@@ -100,6 +101,7 @@ class ResultPage(webapp2.RequestHandler):
             objective=objective,
             institute=institute,
             graduation_year=graduation_year,
+            location=location,
             concentration=concentration,)
         userDetails = {
             "NAME" : name,
@@ -113,6 +115,7 @@ class ResultPage(webapp2.RequestHandler):
             "INSTITUTE": institute,
             "GRADUATION_YEAR": graduation_year,
             "CONCENTRATION": concentration,
+            "LOCATION": location,
 
 
         }
@@ -121,6 +124,11 @@ class ResultPage(webapp2.RequestHandler):
 
         resumeInfo.put()
 
+    # def get(self):
+    #     user = users.get_current_user()
+    #     existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
+    #
+    #     if existing_user:
 
 
 #the app configuration section
