@@ -198,7 +198,6 @@ class ResultPage(webapp2.RequestHandler):
 
 class ImageHandler(webapp2.RequestHandler):
     def get(self):
-        print(" THIS IS RESUME KEY")
         resume_info_key = ndb.Key(urlsafe=self.request.get('img_id'))
 
         resume_info = resume_info_key.get()
@@ -213,7 +212,7 @@ app = webapp2.WSGIApplication(
     [
         ("/", LoginPage),
         ("/home", HomePage),
-        ("/imgs", ImageHandler),
+        ("/imgs/", ImageHandler),
         ("/registration", RegisterationPage),
         ("/result", ResultPage),
 
