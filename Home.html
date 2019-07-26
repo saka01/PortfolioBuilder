@@ -36,10 +36,14 @@
 
     <div>
   <h1> Personal Info</h1>
-    <form action="/result" method="post">
+    <form action="/result" enctype="multipart/form-data" method="post">
       <div>
         <label for="user_name">Name:</label>
         <input value="{{resume.name}}" type="text" id="name" name="user_name">
+      </div>
+      <div>
+        <label for="pic">Photo:</label>
+        <input type="file" name="pic" accept="image/*">
       </div>
       <div>
         <label for ="user_position">Current Position:</label>

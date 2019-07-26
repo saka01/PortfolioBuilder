@@ -3,7 +3,10 @@ import jinja2
 import os
 from google.appengine.api import users
 from models import PortfolioUser
+from google.appengine.api import images
 from models import ResumeInfo
+import models
+from google.appengine.ext import ndb
 #jijna2.environment is a constructor
 jinja_ev = jinja2.Environment(
     # /Users/cssi/Desktop/cssi-labs/python/labs/appengine
@@ -159,6 +162,7 @@ class ResultPage(webapp2.RequestHandler):
         user = users.get_current_user()
         loginemail= self.request.get("login_email")
         name= self.request.get("user_name")
+        image = self.request.get("pic")
         current_position= self.request.get('user_position')
         address = self.request.get("user_address")
         number= self.request.get('user_number')
@@ -186,9 +190,17 @@ class ResultPage(webapp2.RequestHandler):
         end2= self.request.get('end2')
         print('title'+ title)
 
+<<<<<<< HEAD
         resumeInfo= ResumeInfo(
             loginemail = user.nickname(),
             name=name,
+=======
+        image = images.resize(image, 128, 128)
+        resumeInfo= ResumeInfo(
+            parent=models.resume_info_key(name),
+            name=name,
+            image=image,
+>>>>>>> 2119cafd2f434131e1174346ca3c4b144e5e14ff
             current_position=current_position,
             address=address,
             number=number,
@@ -214,9 +226,12 @@ class ResultPage(webapp2.RequestHandler):
             start2=start2,
             end2=end2,
             )
+
+        resumeInfo.put()
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
             "NAME" : name,
+            "IMAGE_ID" : resumeInfo.key.urlsafe(),
             "CURRENTPOSITION" : current_position,
             "ADDRESS" : address,
             "PNUMBER": number,
@@ -258,12 +273,23 @@ class ResultPage(webapp2.RequestHandler):
     #     r = resumeInfo.query().filter(ResumeInfo.key==id).get()
     #     print(r)
 
+class ImageHandler(webapp2.RequestHandler):
+    def get(self):
+        resume_info_key = ndb.Key(urlsafe=self.request.get('img_id'))
+
+        resume_info = resume_info_key.get()
+        if resume_info.image:
+            self.response.headers['Content-Type'] = 'image/*'
+            self.response.out.write(resume_info.image)
+        else:
+            self.response.out.write('No image')
 
 #the app configuration section
 app = webapp2.WSGIApplication(
     [
         ("/", LoginPage),
         ("/home", HomePage),
+        ("/imgs/", ImageHandler),
         ("/registration", RegisterationPage),
         ("/result", ResultPage),
 
