@@ -1,7 +1,12 @@
 from google.appengine.ext import ndb
 
+def resume_info_key(resume_info_name=None):
+    """Constructs a Datastore key for a Guestbook entity with name."""
+    return ndb.Key('ResumeInfo', resume_info_name or 'default_resume_info')
+
 class ResumeInfo(ndb.Model):
     name= ndb.StringProperty(required=True)
+    image = ndb.BlobProperty(required=False)
     current_position= ndb.StringProperty(required=True)
     address= ndb.StringProperty(required=True)
     number= ndb.StringProperty(required=True)
