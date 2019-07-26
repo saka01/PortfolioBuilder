@@ -1,6 +1,7 @@
 from google.appengine.ext import ndb
 
 class ResumeInfo(ndb.Model):
+    loginemail= ndb.StringProperty(required=True)
     name= ndb.StringProperty(required=True)
     current_position= ndb.StringProperty(required=True)
     address= ndb.StringProperty(required=True)

@@ -20,17 +20,20 @@ class LoginPage(webapp2.RequestHandler):
             print("user is logged in to gmail")
             email_address = user.nickname()
             logout_url = users.create_logout_url('/')
-
+            resume_check = ResumeInfo.query().filter(ResumeInfo.loginemail == email_address).fetch()
+                # keys = []
+                # for r in resume_check:
+                #     keys.append(r.key.get())
             print "*"*100
             print email_address
 
             button_dict = {
                 "logout" : logout_url,
+                # "resumeget" : keys,
             }
 
             # print("**********************************")
             # print("current logged in email is: " + email_address)
-
 
             existing_user = PortfolioUser.query().filter(PortfolioUser.email == email_address).get()
             if existing_user:
@@ -62,7 +65,6 @@ class RegisterationPage(webapp2.RequestHandler):
         register_template = jinja_ev.get_template("Registeration.html")
         self.response.write(register_template.render(button_dict))
 
-
 class HomePage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -72,9 +74,11 @@ class HomePage(webapp2.RequestHandler):
         print("current logged in email is: " + email_address)
         button_dict = {
             "logout" : logout_url,
+            # "resumeget" : resume_check,
         }
         home_template = jinja_ev.get_template("Home.html")
         self.response.write(home_template.render(button_dict))
+
 
     # def get(self):
     #     user = users.get_current_user()
@@ -86,6 +90,8 @@ class HomePage(webapp2.RequestHandler):
 
 class ResultPage(webapp2.RequestHandler):
     def post(self):
+        user = users.get_current_user()
+        loginemail= self.request.get("login_email")
         name= self.request.get("user_name")
         current_position= self.request.get('user_position')
         address = self.request.get("user_address")
@@ -110,7 +116,9 @@ class ResultPage(webapp2.RequestHandler):
         user_project= self.request.get('user_project')
         print('title'+ title)
 
-        resumeInfo= ResumeInfo(name=name,
+        resumeInfo= ResumeInfo(
+            loginemail = user.nickname(),
+            name=name,
             current_position=current_position,
             address=address,
             number=number,
@@ -131,6 +139,7 @@ class ResultPage(webapp2.RequestHandler):
             proj1=proj1,
             proj2=proj2,
             user_project=user_project,
+
             )
         # print('resumeInfo'+str(resumeInfo))
         userDetails = {
@@ -166,12 +175,11 @@ class ResultPage(webapp2.RequestHandler):
         )
         portfolio_user.put()
         resumeInfo.put()
-        #
-        # resumeprint = resumeInfo.put()
-        # print(resumeprint)
-        #
-        # mu = resumeInfo(id = users.get_current_user().id())
-        # mu.put()
+
+    def get(self):
+        id = self.request.get("id")
+        r = resumeInfo.query().filter(ResumeInfo.key==id).get()
+        print(r)
 
 
 #the app configuration section

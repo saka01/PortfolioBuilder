@@ -14,7 +14,7 @@
     <font size="100"><u>Build a Resume in Minutes</u></font>
   </h4>
   </div>
-  </div>
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="utf-8">
   </head>
@@ -22,6 +22,13 @@
     <br>
     <br>
     <br>
+
+    {% for i in resumeget %}
+      {{i.key}}
+      <a href="/result/?id={{i.key}}">Resume 1</a>
+    {% endfor %}
+
+
     <div>
   <h1> Personal Info</h1>
     <form action="/result" method="post">
@@ -83,8 +90,8 @@
       <div>
     <h3> Work Experience</h3>
 
-        <label for="exp"> Work Experience:</label>
-        <input type='text' id="experience" name="user_experience">
+        <!-- <label for="exp"> Work Experience:</label>
+        <input type='text' id="experience" name="user_experience"> -->
       </div>
       <ul>
         <li>  <div>
@@ -106,9 +113,9 @@
               <TEXTAREA Name="userex2" ROWS="2" COLS="20"></TEXTAREA>
             </div></li>
       </ul>
-    <h4> Project </h4>
-    <label for="proj"> Project:</label>
-    <input type='text' id="project" name="user_project">
+    <h4> Project </h4>  
+    <!-- <label for="proj"> Project:</label>
+    <input type='text' id="project" name="user_project"> -->
 
       <ul>
         <li>  <div>

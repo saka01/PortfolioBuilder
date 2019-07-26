@@ -26,11 +26,15 @@ hr.style14 {
 }
 
 .wholeresume{
-  margin-top: 50px;
-  margin-left: 200px;
-  margin-right: 200px;
+  padding-top: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  position: relative;
+  padding-top: 122%; /* 16:9 Aspect Ratio */
+
 
 }
+
 
 @media print {
   .box{
