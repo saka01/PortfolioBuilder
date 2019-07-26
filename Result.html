@@ -33,10 +33,14 @@
       <br>
       <h2 style="border:1px solid black;"><b>Experience</b></h2>
       <h3><span  id="experience">{{EXPERIENCE}}</span> - {{TITLE}}</h3>
-      <p>{{EXPERIENCE}}</p>
-      <p>start date: {{START}}</P>  <P>end date: {{END}} </p>
+      <div class="">
+        <p>{{EXPERIENCE}}</p>
+        <p class="dateonrightside">{{START}} - {{END}} </p>
+      </div>
+
       <p>Experience1: {{USEREX1}}</p>
-      <p>start date: {{START2}}</p>  <p>end date: {{END2}}</p>
+      <p>{{TITLE2}}</p>
+      <p class="dateonrightside">{{START2}} - {{END2}}</p>
       <p>Experience2: {{USEREX2}}</p>
 
       <br>
@@ -45,18 +49,10 @@
       <p>Project1: {{PROJ1}}</p>
       <p>{{TITLE4}}</p>
       <p>Project2: {{PROJ2}}</p>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <a href="/home">Dashboard</a>
-
-
-
-
-
     </div>
+    <a href="/home">Dashboard</a>
+    
+    <a href="/?id={{ID}}">Edit</a>
+
   </body>
 </html>

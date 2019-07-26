@@ -29,3 +29,8 @@ font-family: 'Darker Grotesque', sans-serif;
  height:auto;
  padding:1%;
 }
+
+.count{
+  float: right;
+  margin-right: 300px;
+}

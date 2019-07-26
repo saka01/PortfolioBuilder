@@ -30,9 +30,13 @@ hr.style14 {
   padding-left: 200px;
   padding-right: 200px;
   position: relative;
-  padding-top: 122%; /* 16:9 Aspect Ratio */
 
 
+}
+.dateonrightside {
+    float: right;
+    text-align:right;
+    width:33.33333%;
 }
 
 
