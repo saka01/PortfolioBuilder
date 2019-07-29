@@ -111,24 +111,20 @@ class HomePage(webapp2.RequestHandler):
     #         ident = resumeInfo.id()
 
 class ResultPage(webapp2.RequestHandler):
-
     def get(self):
-        id = int(self.request.get('id'))
+        id = long(self.request.get('id'))
         resumes = ResumeInfo.query().fetch()
         resume = None
+
         for r in resumes:
             if r.key.id() == id:
                 print("found it")
                 resume = r
                 break
 
-        print("%%%%%%%%%%%")
-        print(resume)
-
         userDetails = {
             "NAME" : resume.name,
             "CURRENTPOSITION" : resume.current_position,
-
             "ADDRESS" : resume.address,
             "PNUMBER": resume.number,
             "EMAIL": resume.email,
