@@ -1,24 +1,38 @@
 html{
-  height: 100%;
+  /* height: 100%; */
 }
 
-body{
- height: 100%;
- background-image: url("https://ak2.picdn.net/shutterstock/videos/124642/thumb/1.jpg");
- background-size: 100% 100%;
+#logo{
+  width: 330px;
+  height: 190px;
+}
+
+html, body{
+ /* height: 100%; */
+ background: url(../images/bg.jpg);
+ background-size: cover;
  background-repeat: no-repeat;
- margin-top: -20px;
- margin-bottom:0px;
+ /* margin-top: -20px; */
+ /* margin-bottom:0px; */
 }
 
 .center {
-  display: block;
-  margin: 0 auto;
-  width: 500px;
+  /* display: block;
+  margin: 0 auto; */
+  /* width: 500px; */
 }
-  .wrapper {
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center;
-    flex-wrap: wrap;
+
+.wrapper {
+  text-align: center;
+  /* display: flex; */
+  /* justify-content: center; /* align horizontal */ */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+}
+
+.signin{
+  /* display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: center; */
 }

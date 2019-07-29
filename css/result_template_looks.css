@@ -19,7 +19,7 @@
 }
 
 .col img {
-  height: 200px; width: 150px
+  height: 180px; max-width: 300px;
 }
 
 #education{
@@ -37,9 +37,10 @@ hr.style14 {
 
 .wholeresume{
   padding-top: 50px;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 300px;
+  padding-right: 300px;
   position: relative;
+  border: 1px;
 
 
 }
@@ -53,10 +54,6 @@ hr.style14 {
 @media print {
   .box{
     background-color: #1D1D2C;
-
-  }
-  .wholeresume{
-    margin: 0px;
 
   }
 }

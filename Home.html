@@ -27,7 +27,7 @@
       <h3>"Recent Resumes"</h3>
       {% for i in resumeget %}
       <div class="each">
-        <a href="/result?id={{i}}">Resume </a>
+        <a href="/result?id={{i}}">Resume</a>
       </div>
       {% endfor %}
     </div>
@@ -118,24 +118,24 @@
                        min="2018-03" value="2018-05">
             </div></li>
         <li>  <div>
-            <label for='exp1'>experience:</label>
+            <label for='exp1'>experience 1:</label>
             <!-- <input type='text' id="experience" name="userex_1"> -->
             <TEXTAREA Name="userex1" ROWS="2" COLS="20">{{resume.userex1}}</TEXTAREA>
           </div></li>
           <li>  <div>
-              <label for='title2'>Title2:</label>
+              <label for='title2'>Title:</label>
               <input value="{{resume.title2}}" type='text' id="title2" name="title2">
             </div></li>
 
           <li>  <div>
             <label for="start2">Start month:</label>
             <input value="{{resume.start2}}" type="month" id="start2" name="start2"
-               min="2018-03" value="2018-05">
+               min="1999-01" value="1999-01">
             </div></li>
             <li>  <div>
                 <label for="end2">End month:</label>
                 <input value="{{resume.end2}}" type="month" id="end2" name="end2"
-                       min="2018-03" value="2018-05">
+                       min="1999-01" value="1999-01">
             </div></li>
 
           <li>  <div>
@@ -152,20 +152,20 @@
 
       <ul>
         <li>  <div>
-            <label for='title3'>Title3:</label>
+            <label for='title3'>Tiltle:</label>
             <input value = "{{resume.title3}}" type='text' id="title3" name="title3">
           </div></li>
         <li>  <div>
-            <label for='proj1'>Project1:</label>
+            <label for='proj1'>Project 1:</label>
             <!-- <input type='text' id="project1" name="project1"> -->
             <TEXTAREA Name="proj1" ROWS="2" COLS="20">{{resume.proj1}}</TEXTAREA>
           </div></li>
           <li>  <div>
-              <label for='title4'>Title4:</label>
+              <label for='title4'>Title:</label>
               <input value = "{{resume.title4}}" type='text' id="title4" name="title4">
             </div></li>
         <li>  <div>
-            <label for='proj2'>Project2:</label>
+            <label for='proj2'>Project 2:</label>
             <!-- <input type='text' id="project2" name="project2"> -->
             <TEXTAREA Name="proj2" ROWS="2" COLS="20">{{resume.proj2}}</TEXTAREA>
           </div></li>

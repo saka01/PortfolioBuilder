@@ -128,9 +128,11 @@ class ResultPage(webapp2.RequestHandler):
         userDetails = {
             "NAME" : resume.name,
             "CURRENTPOSITION" : resume.current_position,
+
             "ADDRESS" : resume.address,
             "PNUMBER": resume.number,
             "EMAIL": resume.email,
+            "IMAGE_ID" : resume.key.urlsafe(),
             "EDUCATION": resume.education,
             "EXPERIENCE": resume.work_experience,
             "OBJECTIVE": resume.objective,
@@ -160,7 +162,7 @@ class ResultPage(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
-        loginemail= self.request.get("login_email")
+        loginemail= user.nickname()
         name= self.request.get("user_name")
         image = self.request.get("pic")
         current_position= self.request.get('user_position')
@@ -190,17 +192,12 @@ class ResultPage(webapp2.RequestHandler):
         end2= self.request.get('end2')
         print('title'+ title)
 
-<<<<<<< HEAD
-        resumeInfo= ResumeInfo(
-            loginemail = user.nickname(),
-            name=name,
-=======
         image = images.resize(image, 128, 128)
         resumeInfo= ResumeInfo(
             parent=models.resume_info_key(name),
             name=name,
+            loginemail=loginemail,
             image=image,
->>>>>>> 2119cafd2f434131e1174346ca3c4b144e5e14ff
             current_position=current_position,
             address=address,
             number=number,
